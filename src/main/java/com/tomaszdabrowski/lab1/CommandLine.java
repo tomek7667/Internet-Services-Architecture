@@ -136,17 +136,17 @@ public class CommandLine implements CommandLineRunner {
                     break;
                 case "q":
                     scanner.close();
-                    break;
+                    System.out.println("Bye!");
+                    System.exit(0);
                 default:
                     System.out.println("Invalid command");
+                    break;
             }
             printSpacer();
             printSpacer();
             printMenu();
             printSpacer();
         }
-        scanner.close();
-        System.out.println("Bye!");
         return;
     }
 
