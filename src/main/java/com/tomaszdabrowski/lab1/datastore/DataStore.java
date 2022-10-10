@@ -15,11 +15,13 @@ public class DataStore {
     private Set<Category> categories = new HashSet<>();
 
     public Task saveTask(Task task) {
+        task.setId(this.nextTaskId());
         tasks.add(task);
         return task;
     }
 
     public Category saveCategory(Category category) {
+        category.setId(this.nextCategoryId());
         categories.add(category);
         return category;
     }
@@ -48,12 +50,24 @@ public class DataStore {
         return List.copyOf(categories);
     }
 
-    public Long nextTaskId() {
-        return Long.valueOf(tasks.size() + 1);
+    private Long nextTaskId() {
+        Long maxId = 0L;
+        for (Task task : tasks) {
+            if (task.getId() > maxId) {
+                maxId = task.getId();
+            }
+        }
+        return maxId + 1;
     }
 
-    public Long nextCategoryId() {
-        return Long.valueOf(categories.size() + 1);
+    private Long nextCategoryId() {
+        Long maxId = 0L;
+        for (Category category : categories) {
+            if (category.getId() > maxId) {
+                maxId = category.getId();
+            }
+        }
+        return maxId + 1;
     }
 
     public void clear() {

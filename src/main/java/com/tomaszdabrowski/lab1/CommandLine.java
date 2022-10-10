@@ -5,7 +5,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import com.tomaszdabrowski.lab1.ctftask.service.TaskService;
-import com.tomaszdabrowski.lab1.datastore.DataStore;
 import com.tomaszdabrowski.lab1.ctftask.model.Category;
 import com.tomaszdabrowski.lab1.ctftask.model.Task;
 import com.tomaszdabrowski.lab1.ctftask.service.CategoryService;
@@ -23,13 +22,11 @@ public class CommandLine implements CommandLineRunner {
 
     private CategoryService categoryService;
     private TaskService taskService;
-    private DataStore store;
 
     @Autowired
-    public CommandLine(CategoryService categoryService, TaskService taskService, DataStore store) {
+    public CommandLine(CategoryService categoryService, TaskService taskService) {
         this.categoryService = categoryService;
         this.taskService = taskService;
-        this.store = store;
     }
 
     @Override
@@ -49,6 +46,7 @@ public class CommandLine implements CommandLineRunner {
         while (scanner.hasNext()) {
             String input = scanner.nextLine();
             System.out.println("You entered: " + input);
+            printSpacer();
             switch (input) {
                 case "1":
                     System.out.println("Enter task name:");
@@ -77,6 +75,7 @@ public class CommandLine implements CommandLineRunner {
                             .flag(taskFlag)
                             .build();
                     taskService.createOne(task);
+                    System.out.println("Task created successfully.");
                     break;
                 case "2":
                     System.out.println("Enter category name:");
@@ -84,12 +83,11 @@ public class CommandLine implements CommandLineRunner {
                     System.out.println("Enter category description:");
                     String categoryDescription = scanner.nextLine();
                     Category category = Category.builder()
-                            .id(this.store.nextCategoryId())
                             .name(categoryName)
                             .description(categoryDescription)
                             .build();
                     categoryService.createOne(category);
-                    System.out.println("Category created.");
+                    System.out.println("Category created successfully.");
                     break;
                 case "3":
                     System.out.println("Enter task id:");
@@ -98,10 +96,10 @@ public class CommandLine implements CommandLineRunner {
                     Optional<Task> taskToDelete = taskService.findOne(taskId);
                     if (!taskToDelete.isPresent()) {
                         System.out.println("ERR: Task with id " + taskId + " does not exist.");
-                        break;
+                    } else {
+                        taskService.deleteOne(taskId);
+                        System.out.println("Task deleted successfully.");
                     }
-                    taskService.deleteOne(taskId);
-                    System.out.println("Task deleted.");
                     break;
                 case "4":
                     System.out.println("Enter category id:");
@@ -110,19 +108,17 @@ public class CommandLine implements CommandLineRunner {
                     Optional<Category> categoryToDelete = categoryService.findOne(categoryIdToDelete);
                     if (!categoryToDelete.isPresent()) {
                         System.out.println("ERR: Category with id " + categoryIdToDelete + " does not exist.");
-                        break;
+                    } else {
+                        categoryService.deleteOne(categoryIdToDelete);
+                        System.out.println("Category deleted.");
                     }
-                    categoryService.deleteOne(categoryIdToDelete);
-                    System.out.println("Category deleted.");
                     break;
                 case "5":
                     System.out.println("All of the tasks:");
-                    printSpacer();
                     taskService.findMany().forEach(System.out::println);
                     break;
                 case "6":
                     System.out.println("All of the categories:");
-                    printSpacer();
                     categoryService.findMany().forEach(System.out::println);
                     break;
                 case "7":
@@ -143,7 +139,6 @@ public class CommandLine implements CommandLineRunner {
                     Optional<Category> categoryToFind = categoryService.findOne(categoryIdToFind);
                     if (!categoryToFind.isPresent()) {
                         System.out.println("ERR: Category with id " + categoryIdToFind + " does not exist.");
-
                     }
                     System.out.println(categoryToFind.get());
                     break;
@@ -158,9 +153,6 @@ public class CommandLine implements CommandLineRunner {
                     System.out.println("Invalid command");
                     break;
             }
-            printSpacer();
-            printSpacer();
-            printMenu();
             printSpacer();
         }
         return;
