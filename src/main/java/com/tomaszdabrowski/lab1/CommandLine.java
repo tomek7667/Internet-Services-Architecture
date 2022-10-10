@@ -116,23 +116,39 @@ public class CommandLine implements CommandLineRunner {
                     System.out.println("Category deleted.");
                     break;
                 case "5":
-                    printSpacer();
                     System.out.println("All of the tasks:");
                     printSpacer();
                     taskService.findMany().forEach(System.out::println);
-                    printSpacer();
                     break;
                 case "6":
-                    printSpacer();
                     System.out.println("All of the categories:");
                     printSpacer();
                     categoryService.findMany().forEach(System.out::println);
-                    printSpacer();
+                    break;
+                case "7":
+                    System.out.println("Enter task id to find:");
+                    Long taskIdToFind = scanner.nextLong();
+                    scanner.nextLine();
+                    Optional<Task> taskToFind = taskService.findOne(taskIdToFind);
+                    if (!taskToFind.isPresent()) {
+                        System.out.println("ERR: Task with id " + taskIdToFind + " does not exist.");
+                        break;
+                    }
+                    System.out.println(taskToFind.get());
+                    break;
+                case "8":
+                    System.out.println("Enter category id to find:");
+                    Long categoryIdToFind = scanner.nextLong();
+                    scanner.nextLine();
+                    Optional<Category> categoryToFind = categoryService.findOne(categoryIdToFind);
+                    if (!categoryToFind.isPresent()) {
+                        System.out.println("ERR: Category with id " + categoryIdToFind + " does not exist.");
+
+                    }
+                    System.out.println(categoryToFind.get());
                     break;
                 case "m":
-                    printSpacer();
                     printMenu();
-                    printSpacer();
                     break;
                 case "q":
                     scanner.close();
@@ -161,6 +177,8 @@ public class CommandLine implements CommandLineRunner {
         System.out.println("4. Delete category");
         System.out.println("5. Show all tasks");
         System.out.println("6. Show all categories");
+        System.out.println("7. Find task by id");
+        System.out.println("8. Find category by id");
         System.out.println("'m' - show this menu");
         System.out.println("'q' - Exit");
     }
