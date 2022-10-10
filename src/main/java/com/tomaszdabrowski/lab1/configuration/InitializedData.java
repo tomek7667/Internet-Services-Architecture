@@ -7,7 +7,6 @@ import com.tomaszdabrowski.lab1.ctftask.model.Category;
 import com.tomaszdabrowski.lab1.ctftask.model.Task;
 import com.tomaszdabrowski.lab1.ctftask.service.CategoryService;
 import com.tomaszdabrowski.lab1.ctftask.service.TaskService;
-import com.tomaszdabrowski.lab1.datastore.DataStore;
 
 import javax.annotation.PostConstruct;
 import java.io.InputStream;
@@ -16,45 +15,43 @@ import java.io.InputStream;
 public class InitializedData {
         private CategoryService categoryService;
         private TaskService taskService;
-        private DataStore dataStore;
 
         @Autowired
-        public InitializedData(CategoryService categoryService, TaskService taskService, DataStore dataStore) {
+        public InitializedData(CategoryService categoryService, TaskService taskService) {
                 this.categoryService = categoryService;
                 this.taskService = taskService;
-                this.dataStore = dataStore;
         }
 
         @PostConstruct
         private synchronized void init() {
                 if (categoryService.findMany().size() == 0) {
                         Category category1 = Category.builder()
-                                        .id(this.dataStore.nextCategoryId())
+                                        .id(1L)
                                         .name("Reverse Engineering")
                                         .description("Reverse engineering is the process of discovering the technological principles of a device, object, or system through analysis of its structure, function, and operation.")
                                         .build();
                         Category category2 = Category.builder()
-                                        .id(this.dataStore.nextCategoryId())
+                                        .id(2L)
                                         .name("Web Exploitation")
                                         .description("Web exploitation is the process of exploiting vulnerabilities in web applications and web services.")
                                         .build();
                         Category category3 = Category.builder()
-                                        .id(this.dataStore.nextCategoryId())
+                                        .id(3L)
                                         .name("Cryptography")
                                         .description("Cryptography is the practice and study of techniques for secure communication in the presence of third parties called adversaries.")
                                         .build();
                         Category category4 = Category.builder()
-                                        .id(this.dataStore.nextCategoryId())
+                                        .id(4L)
                                         .name("Binary Exploitation")
                                         .description("Binary exploitation is the process of exploiting vulnerabilities in binary programs.")
                                         .build();
                         Category category5 = Category.builder()
-                                        .id(this.dataStore.nextCategoryId())
+                                        .id(5L)
                                         .name("Forensics")
                                         .description("Forensics is the process of uncovering hidden information from a digital artifact.")
                                         .build();
                         Category category6 = Category.builder()
-                                        .id(this.dataStore.nextCategoryId())
+                                        .id(6L)
                                         .name("Miscellaneous")
                                         .description("Miscellaneous is a category for tasks that do not fit into any other category.")
                                         .build();
@@ -66,7 +63,7 @@ public class InitializedData {
                         categoryService.createOne(category6);
 
                         Task task1 = Task.builder()
-                                        .id(this.dataStore.nextTaskId())
+                                        .id(1L)
                                         .name("r3v 1")
                                         .description("This is a simple reverse engineering task. The flag is in the source code.")
                                         .category(category1)
@@ -74,7 +71,7 @@ public class InitializedData {
                                         .flag("flag{r3v3rs3_1s_3asy}")
                                         .build();
                         Task task2 = Task.builder()
-                                        .id(this.dataStore.nextTaskId())
+                                        .id(2L)
                                         .name("r3v 2")
                                         .description("This is a medium reverse engineering task. The flag is in the source code.")
                                         .category(category1)
@@ -82,7 +79,7 @@ public class InitializedData {
                                         .flag("flag{r3v3rs3_1s_m3d1um}")
                                         .build();
                         Task task3 = Task.builder()
-                                        .id(this.dataStore.nextTaskId())
+                                        .id(3L)
                                         .name("r3v 3")
                                         .description("This is a hard reverse engineering task. The flag is in the source code.")
                                         .category(category1)
@@ -91,7 +88,7 @@ public class InitializedData {
                                         .build();
 
                         Task task4 = Task.builder()
-                                        .id(this.dataStore.nextTaskId())
+                                        .id(4L)
                                         .name("w3b 1")
                                         .description("This is a simple web exploitation task. The flag is when XSS is performed.")
                                         .category(category2)
@@ -99,7 +96,7 @@ public class InitializedData {
                                         .flag("flag{w3b_1s_3asy}")
                                         .build();
                         Task task5 = Task.builder()
-                                        .id(this.dataStore.nextTaskId())
+                                        .id(5L)
                                         .name("w3b 2")
                                         .description("This is a medium web exploitation task. The flag is when DOM Clobbering is performed.")
                                         .category(category2)
@@ -107,7 +104,7 @@ public class InitializedData {
                                         .flag("flag{w3b_1s_m3d1um}")
                                         .build();
                         Task task6 = Task.builder()
-                                        .id(this.dataStore.nextTaskId())
+                                        .id(6L)
                                         .name("w3b 3")
                                         .description("This is a hard web exploitation task. The flag is when SQL Injection is performed.")
                                         .category(category2)
@@ -116,7 +113,7 @@ public class InitializedData {
                                         .build();
 
                         Task task7 = Task.builder()
-                                        .id(this.dataStore.nextTaskId())
+                                        .id(7L)
                                         .name("cryp 1")
                                         .description("This is a simple cryptography task. The flag is when RSA is cracked.")
                                         .category(category3)
@@ -124,7 +121,7 @@ public class InitializedData {
                                         .flag("flag{cryp_1s_3asy}")
                                         .build();
                         Task task8 = Task.builder()
-                                        .id(this.dataStore.nextTaskId())
+                                        .id(8L)
                                         .name("cryp 2")
                                         .description("This is a medium cryptography task. The flag is when AES is cracked.")
                                         .category(category3)
@@ -132,7 +129,7 @@ public class InitializedData {
                                         .flag("flag{cryp_1s_m3d1um}")
                                         .build();
                         Task task9 = Task.builder()
-                                        .id(this.dataStore.nextTaskId())
+                                        .id(9L)
                                         .name("cryp 3")
                                         .description("This is a hard cryptography task. The flag is when RSA is cracked.")
                                         .category(category3)
