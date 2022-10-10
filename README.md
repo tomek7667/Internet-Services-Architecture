@@ -68,3 +68,7 @@ int level;
 ## Run instructions:
 
 Run in the target directory `java -jar lab1-0.0.1-SNAPSHOT.jar`
+
+## Debugging
+
+`./run.sh`
