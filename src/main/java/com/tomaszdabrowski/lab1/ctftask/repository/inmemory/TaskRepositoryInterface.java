@@ -9,6 +9,7 @@ import java.util.Optional;
 public interface TaskRepositoryInterface extends InMemoryRepositoryInterface<Task, Long> {
     Optional<Task> findById(Long id);
     List<Task> findMany();
+    List<Task> findManyByCategoryId(Long categoryId);
     Task save(Task task);
     void deleteById(Long id);
 }

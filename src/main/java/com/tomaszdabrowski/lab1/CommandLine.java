@@ -9,6 +9,7 @@ import com.tomaszdabrowski.lab1.ctftask.model.Category;
 import com.tomaszdabrowski.lab1.ctftask.model.Task;
 import com.tomaszdabrowski.lab1.ctftask.service.CategoryService;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
@@ -109,8 +110,15 @@ public class CommandLine implements CommandLineRunner {
                     if (!categoryToDelete.isPresent()) {
                         System.out.println("ERR: Category with id " + categoryIdToDelete + " does not exist.");
                     } else {
-                        categoryService.deleteOne(categoryIdToDelete);
-                        System.out.println("Category deleted.");
+                        // If there are any tasks associated with the category, prompt error
+                        List<Task> associatedTasks = taskService.findManyByCategoryId(categoryToDelete.get().getId());
+                        if (associatedTasks.size() > 0) {
+                            System.out
+                                    .println("ERR: Category with id " + categoryIdToDelete + " has associated tasks.");
+                        } else {
+                            categoryService.deleteOne(categoryIdToDelete);
+                            System.out.println("Category deleted successfully.");
+                        }
                     }
                     break;
                 case "5":

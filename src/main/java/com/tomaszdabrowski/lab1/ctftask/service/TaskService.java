@@ -26,6 +26,10 @@ public class TaskService {
         return taskRepository.findMany();
     }
 
+    public List<Task> findManyByCategoryId(Long categoryId) {
+        return taskRepository.findManyByCategoryId(categoryId);
+    }
+
     public Task createOne(Task task) {
         return taskRepository.save(task);
     }

@@ -46,6 +46,10 @@ public class DataStore {
         return List.copyOf(tasks);
     }
 
+    public List<Task> findManyTasksByCategoryId(Long categoryId) {
+        return List.copyOf(tasks);
+    }
+
     public List<Category> findManyCategories() {
         return List.copyOf(categories);
     }

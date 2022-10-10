@@ -24,6 +24,10 @@ public class TaskRepository implements TaskRepositoryInterface {
         return store.findManyTasks();
     }
 
+    public List<Task> findManyByCategoryId(Long categoryId) {
+        return store.findManyTasksByCategoryId(categoryId);
+    }
+
     public Task save(Task task) {
         return store.saveTask(task);
     }
