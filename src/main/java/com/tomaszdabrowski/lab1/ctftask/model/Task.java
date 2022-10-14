@@ -11,6 +11,10 @@ import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 @Getter
 @Setter
 @SuperBuilder
@@ -18,12 +22,16 @@ import java.io.Serializable;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString(callSuper = true)
 @EqualsAndHashCode()
+@Entity
+@Table(name = "tasks")
 public class Task implements Serializable {
+    @Id
     private Long id;
     private String name;
 
     @ToString.Exclude
     private Category category;
+    
     private String description;
     private int points;
 

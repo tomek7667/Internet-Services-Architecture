@@ -10,6 +10,11 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import com.tomaszdabrowski.lab1.ctftask.model.Category;
 
 @Getter
@@ -19,7 +24,10 @@ import com.tomaszdabrowski.lab1.ctftask.model.Category;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString(callSuper = true)
 @EqualsAndHashCode()
+@Entity
+@Table(name = "categories")
 public class Category implements Serializable {
+    @Id
     private Long id;
     private String name;
     private String description;

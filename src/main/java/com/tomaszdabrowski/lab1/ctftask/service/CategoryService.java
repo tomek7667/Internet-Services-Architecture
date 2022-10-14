@@ -4,18 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tomaszdabrowski.lab1.ctftask.model.Category;
-import com.tomaszdabrowski.lab1.ctftask.repository.inmemory.CategoryRepositoryInterface;
+import com.tomaszdabrowski.lab1.ctftask.repository.h2.CategoryRepository;
 
 import java.util.List;
 import java.util.Optional;
 
-
 @Service
 public class CategoryService {
-    private CategoryRepositoryInterface categoryRepository;
+    private CategoryRepository categoryRepository;
 
     @Autowired
-    public CategoryService(CategoryRepositoryInterface categoryRepository) {
+    public CategoryService(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
 
@@ -24,7 +23,7 @@ public class CategoryService {
     }
 
     public List<Category> findMany() {
-        return categoryRepository.findMany();
+        return categoryRepository.findAll();
     }
 
     public Category createOne(Category category) {
@@ -37,5 +36,9 @@ public class CategoryService {
 
     public void deleteOne(Long id) {
         categoryRepository.deleteById(id);
+    }
+
+    public List<Category> findManyByName(String name) {
+        return categoryRepository.findByName(name);
     }
 }
