@@ -26,10 +26,10 @@ public class CreateTaskDto {
     private int points;
     private String flag;
 
-    public static Function<CreateTaskDto, Task> dtoToEntityMapper() {
+    public static Function<CreateTaskDto, Task> dtoToEntityMapper(Category category) {
         return dto -> Task.builder()
                 .name(dto.getName())
-                .category(Category.builder().id(dto.getCategoryId()).build())
+                .category(category)
                 .description(dto.getDescription())
                 .points(dto.getPoints())
                 .flag(dto.getFlag())
