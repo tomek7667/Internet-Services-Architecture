@@ -8,6 +8,7 @@ import com.tomaszdabrowski.lab1.ctftask.repository.h2.CategoryRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class CategoryService {
@@ -18,7 +19,7 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public Optional<Category> findOne(Long id) {
+    public Optional<Category> findOne(UUID id) {
         return categoryRepository.findById(id);
     }
 
@@ -34,7 +35,7 @@ public class CategoryService {
         return categoryRepository.save(category);
     }
 
-    public void deleteOne(Long id) {
+    public void deleteOne(UUID id) {
         categoryRepository.deleteById(id);
     }
 

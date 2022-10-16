@@ -3,6 +3,7 @@ package com.tomaszdabrowski.lab1.ctftask.model;
 import com.tomaszdabrowski.lab1.ctftask.model.Category;
 import java.io.Serializable;
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -32,10 +33,10 @@ import lombok.ToString;
 @Table(name = "categories")
 public class Category implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "UUID", strategy = GenerationType.AUTO)
     @Basic(optional = false)
-    @Column(name = "id", unique = true, nullable = false)
-    private Long id;
+    @Column(name = "id", unique = true, nullable = false, length = 16)
+    private UUID id;
 
     @Basic(optional = false)
     @Column(name = "name", unique = true, nullable = false)

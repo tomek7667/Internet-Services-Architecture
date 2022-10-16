@@ -3,6 +3,7 @@ package com.tomaszdabrowski.lab1.ctftask.dto;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.UUID;
 import java.util.function.Function;
 
 import com.tomaszdabrowski.lab1.ctftask.model.Task;
@@ -22,7 +23,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 public class GetTaskDto {
-    private Long id;
+    private UUID id;
     private String name;
     private String description;
     private int points;

@@ -8,6 +8,7 @@ import com.tomaszdabrowski.lab1.ctftask.repository.h2.TaskRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class TaskService {
@@ -18,7 +19,7 @@ public class TaskService {
         this.taskRepository = taskRepository;
     }
 
-    public Optional<Task> findOne(Long id) {
+    public Optional<Task> findOne(UUID id) {
         return taskRepository.findById(id);
     }
 
@@ -34,11 +35,11 @@ public class TaskService {
         return taskRepository.save(task);
     }
 
-    public void deleteOne(Long id) {
+    public void deleteOne(UUID id) {
         taskRepository.deleteById(id);
     }
 
-    public List<Task> findManyByCategoryId(Long categoryId) {
+    public List<Task> findManyByCategoryId(UUID categoryId) {
         return taskRepository.findByCategoryId(categoryId);
     }
 

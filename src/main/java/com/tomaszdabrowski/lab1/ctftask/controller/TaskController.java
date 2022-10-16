@@ -9,6 +9,7 @@ import com.tomaszdabrowski.lab1.ctftask.model.Category;
 import com.tomaszdabrowski.lab1.ctftask.model.Task;
 
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +42,7 @@ public class TaskController {
 
     @GetMapping("{taskId}")
     public ResponseEntity<GetTaskDto> getTask(
-            @PathVariable("taskId") Long taskId) {
+            @PathVariable("taskId") UUID taskId) {
         return taskService
                 .findOne(taskId)
                 .map(

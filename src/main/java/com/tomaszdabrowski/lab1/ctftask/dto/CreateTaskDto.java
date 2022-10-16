@@ -1,5 +1,6 @@
 package com.tomaszdabrowski.lab1.ctftask.dto;
 
+import java.util.UUID;
 import java.util.function.Function;
 
 import com.tomaszdabrowski.lab1.ctftask.model.Category;
@@ -21,7 +22,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class CreateTaskDto {
     private String name;
-    private Long categoryId;
+    private UUID categoryId;
     private String description;
     private int points;
     private String flag;

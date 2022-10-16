@@ -1,6 +1,8 @@
 package com.tomaszdabrowski.lab1.ctftask.model;
 
 import java.io.Serializable;
+import java.util.UUID;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,10 +33,10 @@ import lombok.experimental.SuperBuilder;
 @Table(name = "tasks")
 public class Task implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "UUID", strategy = GenerationType.AUTO)
     @Basic(optional = false)
-    @Column(name = "id", unique = true, nullable = false)
-    private Long id;
+    @Column(name = "id", unique = true, nullable = false, length = 16)
+    private UUID id;
 
     @Basic(optional = false)
     @Column(name = "name", nullable = false, length = 255)
