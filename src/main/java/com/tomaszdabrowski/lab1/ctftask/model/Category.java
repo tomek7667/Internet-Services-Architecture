@@ -32,7 +32,6 @@ import lombok.ToString;
 @Entity
 @Table(name = "categories")
 public class Category implements Serializable {
-
   @Id
   @GeneratedValue(generator = "UUID", strategy = GenerationType.AUTO)
   @Basic(optional = false)
