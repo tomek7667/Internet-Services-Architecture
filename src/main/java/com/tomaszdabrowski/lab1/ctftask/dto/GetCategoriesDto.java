@@ -1,6 +1,6 @@
 package com.tomaszdabrowski.lab1.ctftask.dto;
 
-import com.tomaszdabrowski.lab1.ctftask.model.Task;
+import com.tomaszdabrowski.lab1.ctftask.model.Category;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
@@ -19,15 +19,15 @@ import lombok.ToString;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString
 @EqualsAndHashCode
-public class GetTasksDto {
+public class GetCategoriesDto {
 
   @Singular
-  private List<String> tasks;
+  private List<String> categories;
 
-  public static Function<Collection<Task>, GetTasksDto> entityToDtoMapper() {
-    return tasks -> {
-      GetTasksDtoBuilder response = GetTasksDto.builder();
-      tasks.stream().map(Task::getName).forEach(response::task);
+  public static Function<Collection<Category>, GetCategoriesDto> entityToDtoMapper() {
+    return categories -> {
+      GetCategoriesDtoBuilder response = GetCategoriesDto.builder();
+      categories.stream().map(Category::getName).forEach(response::category);
       return response.build();
     };
   }

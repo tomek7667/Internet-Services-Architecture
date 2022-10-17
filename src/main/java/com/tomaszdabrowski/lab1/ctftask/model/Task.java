@@ -2,7 +2,6 @@ package com.tomaszdabrowski.lab1.ctftask.model;
 
 import java.io.Serializable;
 import java.util.UUID;
-
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,22 +31,24 @@ import lombok.experimental.SuperBuilder;
 @Entity
 @Table(name = "tasks")
 public class Task implements Serializable {
-    @Id
-    @GeneratedValue(generator = "UUID", strategy = GenerationType.AUTO)
-    @Basic(optional = false)
-    @Column(name = "id", unique = true, nullable = false, length = 16)
-    private UUID id;
 
-    @Basic(optional = false)
-    @Column(name = "name", nullable = false, length = 255)
-    private String name;
-    private String description;
-    private int points;
-    
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
-    private Category category;
+  @Id
+  @GeneratedValue(generator = "UUID", strategy = GenerationType.AUTO)
+  @Basic(optional = false)
+  @Column(name = "id", unique = true, nullable = false, length = 16)
+  private UUID id;
 
-    @ToString.Exclude
-    private String flag;
+  @Basic(optional = false)
+  @Column(name = "name", nullable = false, length = 255)
+  private String name;
+
+  private String description;
+  private int points;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "category_id")
+  private Category category;
+
+  @ToString.Exclude
+  private String flag;
 }

@@ -1,45 +1,44 @@
 package com.tomaszdabrowski.lab1.ctftask.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.tomaszdabrowski.lab1.ctftask.model.Category;
 import com.tomaszdabrowski.lab1.ctftask.repository.h2.CategoryRepository;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class CategoryService {
-    private CategoryRepository categoryRepository;
 
-    @Autowired
-    public CategoryService(CategoryRepository categoryRepository) {
-        this.categoryRepository = categoryRepository;
-    }
+  private CategoryRepository categoryRepository;
 
-    public Optional<Category> findOne(UUID id) {
-        return categoryRepository.findById(id);
-    }
+  @Autowired
+  public CategoryService(CategoryRepository categoryRepository) {
+    this.categoryRepository = categoryRepository;
+  }
 
-    public List<Category> findMany() {
-        return categoryRepository.findAll();
-    }
+  public Optional<Category> findOne(UUID id) {
+    return categoryRepository.findById(id);
+  }
 
-    public Category createOne(Category category) {
-        return categoryRepository.save(category);
-    }
+  public List<Category> findMany() {
+    return categoryRepository.findAll();
+  }
 
-    public Category updateOne(Category category) {
-        return categoryRepository.save(category);
-    }
+  public Category createOne(Category category) {
+    return categoryRepository.save(category);
+  }
 
-    public void deleteOne(UUID id) {
-        categoryRepository.deleteById(id);
-    }
+  public Category updateOne(Category category) {
+    return categoryRepository.save(category);
+  }
 
-    public List<Category> findManyByName(String name) {
-        return categoryRepository.findByName(name);
-    }
+  public void deleteOne(UUID id) {
+    categoryRepository.deleteById(id);
+  }
+
+  public List<Category> findManyByName(String name) {
+    return categoryRepository.findByName(name);
+  }
 }
