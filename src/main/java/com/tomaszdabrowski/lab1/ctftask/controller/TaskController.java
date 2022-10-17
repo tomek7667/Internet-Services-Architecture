@@ -3,6 +3,7 @@ package com.tomaszdabrowski.lab1.ctftask.controller;
 import com.tomaszdabrowski.lab1.ctftask.dto.CreateTaskDto;
 import com.tomaszdabrowski.lab1.ctftask.dto.GetTaskDto;
 import com.tomaszdabrowski.lab1.ctftask.dto.GetTasksDto;
+import com.tomaszdabrowski.lab1.ctftask.dto.UpdateTaskDto;
 import com.tomaszdabrowski.lab1.ctftask.model.Category;
 import com.tomaszdabrowski.lab1.ctftask.model.Task;
 import com.tomaszdabrowski.lab1.ctftask.service.CategoryService;
@@ -11,9 +12,11 @@ import java.util.Optional;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -75,6 +78,49 @@ public class TaskController {
             .toUri()
         )
         .body(GetTaskDto.entityToDtoMapper().apply(task));
+    } else {
+      return ResponseEntity.notFound().build();
+    }
+  }
+
+  @PutMapping("{taskId}")
+  public ResponseEntity<Void> updateTask(
+    @PathVariable("taskId") UUID taskId,
+    @RequestBody UpdateTaskDto updateTaskDto
+  ) {
+    Optional<Task> task = taskService.findOne(taskId);
+    if (task.isPresent()) {
+      if (updateTaskDto.getCategoryId().isPresent()) {
+        Optional<Category> category = categoryService.findOne(
+          updateTaskDto.getCategoryId().get()
+        );
+        if (category.isPresent()) {
+          Task updatedTask = UpdateTaskDto
+            .dtoToEntityUpdater(category)
+            .apply(task.get(), updateTaskDto);
+          taskService.updateOne(updatedTask);
+          return ResponseEntity.ok().build();
+        } else {
+          return ResponseEntity.notFound().build();
+        }
+      } else {
+        Task updatedTask = UpdateTaskDto
+          .dtoToEntityUpdater(null)
+          .apply(task.get(), updateTaskDto);
+        taskService.updateOne(updatedTask);
+        return ResponseEntity.ok().build();
+      }
+    } else {
+      return ResponseEntity.notFound().build();
+    }
+  }
+
+  @DeleteMapping("{taskId}")
+  public ResponseEntity<Void> deleteTask(@PathVariable("taskId") UUID taskId) {
+    Optional<Task> task = taskService.findOne(taskId);
+    if (task.isPresent()) {
+      taskService.deleteOne(taskId);
+      return ResponseEntity.ok().build();
     } else {
       return ResponseEntity.notFound().build();
     }

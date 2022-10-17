@@ -43,7 +43,7 @@ public class Task implements Serializable {
   private String name;
 
   private String description;
-  private int points;
+  private Integer points;
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "category_id")

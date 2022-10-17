@@ -3,15 +3,18 @@ package com.tomaszdabrowski.lab1.ctftask.controller;
 import com.tomaszdabrowski.lab1.ctftask.dto.CreateCategoryDto;
 import com.tomaszdabrowski.lab1.ctftask.dto.GetCategoriesDto;
 import com.tomaszdabrowski.lab1.ctftask.dto.GetCategoryDto;
+import com.tomaszdabrowski.lab1.ctftask.dto.UpdateCategoryDto;
 import com.tomaszdabrowski.lab1.ctftask.model.Category;
 import com.tomaszdabrowski.lab1.ctftask.service.CategoryService;
-import com.tomaszdabrowski.lab1.ctftask.service.TaskService;
+import java.util.Optional;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,15 +24,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 @RequestMapping("/api/v1/categories")
 public class CategoryController {
 
-  private TaskService taskService;
   private CategoryService categoryService;
 
   @Autowired
-  public CategoryController(
-    TaskService taskService,
-    CategoryService categoryService
-  ) {
-    this.taskService = taskService;
+  public CategoryController(CategoryService categoryService) {
     this.categoryService = categoryService;
   }
 
@@ -54,7 +52,7 @@ public class CategoryController {
   }
 
   @PostMapping
-  public ResponseEntity<GetCategoryDto> createCategory(
+  public ResponseEntity<Void> createCategory(
     @RequestBody CreateCategoryDto createCategoryDto,
     UriComponentsBuilder builder
   ) {
@@ -69,6 +67,36 @@ public class CategoryController {
           .buildAndExpand(category.getId())
           .toUri()
       )
-      .body(GetCategoryDto.entityToDtoMapper().apply(category));
+      .build();
+  }
+
+  @PutMapping("{categoryId}")
+  public ResponseEntity<Void> updateCategory(
+    @PathVariable("categoryId") UUID categoryId,
+    @RequestBody UpdateCategoryDto createCategoryDto
+  ) {
+    Optional<Category> category = categoryService.findOne(categoryId);
+    if (category.isPresent()) {
+      Category updatedCategory = UpdateCategoryDto
+        .dtoToEntityUpdater()
+        .apply(category.get(), createCategoryDto);
+      categoryService.updateOne(updatedCategory);
+      return ResponseEntity.ok().build();
+    } else {
+      return ResponseEntity.notFound().build();
+    }
+  }
+
+  @DeleteMapping("{categoryId}")
+  public ResponseEntity<Void> deleteCategory(
+    @PathVariable("categoryId") UUID categoryId
+  ) {
+    Optional<Category> category = categoryService.findOne(categoryId);
+    if (category.isPresent()) {
+      categoryService.deleteOne(categoryId);
+      return ResponseEntity.ok().build();
+    } else {
+      return ResponseEntity.notFound().build();
+    }
   }
 }

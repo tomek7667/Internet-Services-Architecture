@@ -23,7 +23,7 @@ public class CreateTaskDto {
   private String name;
   private UUID categoryId;
   private String description;
-  private int points;
+  private Integer points;
   private String flag;
 
   public static Function<CreateTaskDto, Task> dtoToEntityMapper(
