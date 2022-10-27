@@ -1,9 +1,9 @@
-package com.tomaszdabrowski.lab1.configuration;
+package com.tomaszdabrowski.lab3.configuration;
 
-import com.tomaszdabrowski.lab1.ctftask.model.Category;
-import com.tomaszdabrowski.lab1.ctftask.model.Task;
-import com.tomaszdabrowski.lab1.ctftask.service.CategoryService;
-import com.tomaszdabrowski.lab1.ctftask.service.TaskService;
+import com.tomaszdabrowski.lab3.ctftask.model.Category;
+import com.tomaszdabrowski.lab3.ctftask.model.Task;
+import com.tomaszdabrowski.lab3.ctftask.service.CategoryService;
+import com.tomaszdabrowski.lab3.ctftask.service.TaskService;
 import java.io.InputStream;
 import java.util.UUID;
 import javax.annotation.PostConstruct;

@@ -1,6 +1,6 @@
-package com.tomaszdabrowski.lab1.ctftask.repository.h2;
+package com.tomaszdabrowski.lab3.ctftask.repository.h2;
 
-import com.tomaszdabrowski.lab1.ctftask.model.Category;
+import com.tomaszdabrowski.lab3.ctftask.model.Category;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;

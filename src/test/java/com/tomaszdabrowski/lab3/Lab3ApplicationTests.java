@@ -1,13 +1,12 @@
-package com.tomaszdabrowski.lab1;
+package com.tomaszdabrowski.lab3;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class Lab1ApplicationTests {
-
-	// @Test
-	// void contextLoads() {
-	// }
+class Lab3ApplicationTests {
+  // @Test
+  // void contextLoads() {
+  // }
 
 }

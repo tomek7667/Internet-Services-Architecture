@@ -1,6 +1,6 @@
-package com.tomaszdabrowski.lab1.ctftask.dto;
+package com.tomaszdabrowski.lab3.ctftask.dto;
 
-import com.tomaszdabrowski.lab1.ctftask.model.Category;
+import com.tomaszdabrowski.lab3.ctftask.model.Category;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;

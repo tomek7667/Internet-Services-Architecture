@@ -1,11 +1,11 @@
-package com.tomaszdabrowski.lab1.ctftask.controller;
+package com.tomaszdabrowski.lab3.ctftask.controller;
 
-import com.tomaszdabrowski.lab1.ctftask.dto.CreateCategoryDto;
-import com.tomaszdabrowski.lab1.ctftask.dto.GetCategoriesDto;
-import com.tomaszdabrowski.lab1.ctftask.dto.GetCategoryDto;
-import com.tomaszdabrowski.lab1.ctftask.dto.UpdateCategoryDto;
-import com.tomaszdabrowski.lab1.ctftask.model.Category;
-import com.tomaszdabrowski.lab1.ctftask.service.CategoryService;
+import com.tomaszdabrowski.lab3.ctftask.dto.CreateCategoryDto;
+import com.tomaszdabrowski.lab3.ctftask.dto.GetCategoriesDto;
+import com.tomaszdabrowski.lab3.ctftask.dto.GetCategoryDto;
+import com.tomaszdabrowski.lab3.ctftask.dto.UpdateCategoryDto;
+import com.tomaszdabrowski.lab3.ctftask.model.Category;
+import com.tomaszdabrowski.lab3.ctftask.service.CategoryService;
 import java.util.Optional;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;

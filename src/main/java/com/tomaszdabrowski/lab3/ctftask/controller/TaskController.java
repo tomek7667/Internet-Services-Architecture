@@ -1,13 +1,13 @@
-package com.tomaszdabrowski.lab1.ctftask.controller;
+package com.tomaszdabrowski.lab3.ctftask.controller;
 
-import com.tomaszdabrowski.lab1.ctftask.dto.CreateTaskDto;
-import com.tomaszdabrowski.lab1.ctftask.dto.GetTaskDto;
-import com.tomaszdabrowski.lab1.ctftask.dto.GetTasksDto;
-import com.tomaszdabrowski.lab1.ctftask.dto.UpdateTaskDto;
-import com.tomaszdabrowski.lab1.ctftask.model.Category;
-import com.tomaszdabrowski.lab1.ctftask.model.Task;
-import com.tomaszdabrowski.lab1.ctftask.service.CategoryService;
-import com.tomaszdabrowski.lab1.ctftask.service.TaskService;
+import com.tomaszdabrowski.lab3.ctftask.dto.CreateTaskDto;
+import com.tomaszdabrowski.lab3.ctftask.dto.GetTaskDto;
+import com.tomaszdabrowski.lab3.ctftask.dto.GetTasksDto;
+import com.tomaszdabrowski.lab3.ctftask.dto.UpdateTaskDto;
+import com.tomaszdabrowski.lab3.ctftask.model.Category;
+import com.tomaszdabrowski.lab3.ctftask.model.Task;
+import com.tomaszdabrowski.lab3.ctftask.service.CategoryService;
+import com.tomaszdabrowski.lab3.ctftask.service.TaskService;
 import java.util.Optional;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;

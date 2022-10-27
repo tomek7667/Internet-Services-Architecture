@@ -62,12 +62,12 @@ int level;
 ## Known to me build instructions:
 
 1. Clone the repository
-2. Comment out the test present in `Lab1ApplicationTests.java`.
+2. Comment out the test present in `Lab3ApplicationTests.java`.
 3. Run `mvn clean install` in the root directory
 
 ## Run instructions:
 
-Run in the target directory `java -jar lab1-0.0.1-SNAPSHOT.jar`
+Run in the target directory `java -jar lab3-0.0.1-SNAPSHOT.jar`
 
 ## Debugging
 

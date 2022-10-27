@@ -1,6 +1,6 @@
-package com.tomaszdabrowski.lab1.ctftask.dto;
+package com.tomaszdabrowski.lab3.ctftask.dto;
 
-import com.tomaszdabrowski.lab1.ctftask.model.Task;
+import com.tomaszdabrowski.lab3.ctftask.model.Task;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

@@ -1,2 +1,2 @@
 mvn install
-java -jar ./target/lab1-0.0.1-SNAPSHOT.jar
+java -jar ./target/lab3-0.0.1-SNAPSHOT.jar

@@ -8,10 +8,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.tomaszdabrowski</groupId>
-	<artifactId>lab1</artifactId>
+	<artifactId>lab3</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>lab1</name>
-	<description>Laboratories part 1</description>
+	<name>lab3</name>
+	<description>Laboratories part 3</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

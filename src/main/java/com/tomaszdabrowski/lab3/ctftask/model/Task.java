@@ -1,4 +1,4 @@
-package com.tomaszdabrowski.lab1.ctftask.model;
+package com.tomaszdabrowski.lab3.ctftask.model;
 
 import java.io.Serializable;
 import java.util.UUID;

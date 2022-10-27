@@ -1,6 +1,6 @@
-package com.tomaszdabrowski.lab1.ctftask.model;
+package com.tomaszdabrowski.lab3.ctftask.model;
 
-import com.tomaszdabrowski.lab1.ctftask.model.Category;
+import com.tomaszdabrowski.lab3.ctftask.model.Category;
 import java.io.Serializable;
 import java.util.List;
 import java.util.UUID;
@@ -32,6 +32,7 @@ import lombok.ToString;
 @Entity
 @Table(name = "categories")
 public class Category implements Serializable {
+
   @Id
   @GeneratedValue(generator = "UUID", strategy = GenerationType.AUTO)
   @Basic(optional = false)

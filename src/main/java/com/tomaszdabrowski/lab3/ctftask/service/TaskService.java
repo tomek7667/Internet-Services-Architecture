@@ -1,7 +1,7 @@
-package com.tomaszdabrowski.lab1.ctftask.service;
+package com.tomaszdabrowski.lab3.ctftask.service;
 
-import com.tomaszdabrowski.lab1.ctftask.model.Task;
-import com.tomaszdabrowski.lab1.ctftask.repository.h2.TaskRepository;
+import com.tomaszdabrowski.lab3.ctftask.model.Task;
+import com.tomaszdabrowski.lab3.ctftask.repository.h2.TaskRepository;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
