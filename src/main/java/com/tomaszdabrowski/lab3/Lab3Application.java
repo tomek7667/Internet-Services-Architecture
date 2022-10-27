@@ -28,6 +28,15 @@ public class Lab3Application {
           r
             .host("localhost:8081")
             .and()
+            .path("/api/v1/categories/*/tasks")
+            .uri("http://localhost:8083")
+      )
+      .route(
+        "categories",
+        r ->
+          r
+            .host("localhost:8081")
+            .and()
             .path("/api/v1/categories/**")
             .uri("http://localhost:8082")
       )
@@ -38,7 +47,7 @@ public class Lab3Application {
             .host("localhost:8081")
             .and()
             .path("/api/v1/tasks/**")
-            .uri("http://localhost:8082")
+            .uri("http://localhost:8083")
       )
       .build();
   }
