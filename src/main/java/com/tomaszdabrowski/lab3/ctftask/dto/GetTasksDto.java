@@ -1,5 +1,6 @@
 package com.tomaszdabrowski.lab3.ctftask.dto;
 
+import com.tomaszdabrowski.lab3.ctftask.model.MinifiedTask;
 import com.tomaszdabrowski.lab3.ctftask.model.Task;
 import java.util.Collection;
 import java.util.List;
@@ -22,12 +23,12 @@ import lombok.ToString;
 public class GetTasksDto {
 
   @Singular
-  private List<String> tasks;
+  private List<MinifiedTask> tasks;
 
   public static Function<Collection<Task>, GetTasksDto> entityToDtoMapper() {
     return tasks -> {
       GetTasksDtoBuilder response = GetTasksDto.builder();
-      tasks.stream().map(Task::getName).forEach(response::task);
+      tasks.stream().map(Task::asMinifiedTask).forEach(response::task);
       return response.build();
     };
   }

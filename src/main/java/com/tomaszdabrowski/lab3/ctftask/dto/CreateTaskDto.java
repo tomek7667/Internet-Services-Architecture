@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -16,12 +17,13 @@ import lombok.ToString;
 @Setter
 @Builder
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 @ToString
 @EqualsAndHashCode
 public class CreateTaskDto {
 
   private String name;
-  private UUID categoryId;
+  private String categoryId;
   private String description;
   private Integer points;
   private String flag;
@@ -32,6 +34,7 @@ public class CreateTaskDto {
     return dto ->
       Task
         .builder()
+        .id(UUID.randomUUID())
         .name(dto.getName())
         .category(category)
         .description(dto.getDescription())

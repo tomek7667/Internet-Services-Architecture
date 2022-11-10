@@ -51,4 +51,8 @@ public class Task implements Serializable {
 
   @ToString.Exclude
   private String flag;
+
+  public static MinifiedTask asMinifiedTask(Task task) {
+    return MinifiedTask.builder().id(task.getId()).name(task.getName()).build();
+  }
 }

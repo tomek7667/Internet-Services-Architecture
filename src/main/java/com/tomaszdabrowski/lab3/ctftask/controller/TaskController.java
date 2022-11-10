@@ -51,8 +51,8 @@ public class TaskController {
   ) {
     return taskService
       .findOne(taskId)
-      .map(
-        value -> ResponseEntity.ok(GetTaskDto.entityToDtoMapper().apply(value))
+      .map(value ->
+        ResponseEntity.ok(GetTaskDto.entityToDtoMapper().apply(value))
       )
       .orElseGet(() -> ResponseEntity.notFound().build());
   }
@@ -63,7 +63,7 @@ public class TaskController {
     UriComponentsBuilder builder
   ) {
     Optional<Category> category = categoryService.findOne(
-      createTaskDto.getCategoryId()
+      UUID.fromString(createTaskDto.getCategoryId())
     );
     if (category.isPresent()) {
       Task task = CreateTaskDto
