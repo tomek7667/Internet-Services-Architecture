@@ -1,6 +1,7 @@
 package com.tomaszdabrowski.lab3.ctftask.dto;
 
 import com.tomaszdabrowski.lab3.ctftask.model.Category;
+import java.util.UUID;
 import java.util.function.Function;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -25,6 +26,7 @@ public class CreateCategoryDto {
     return dto ->
       Category
         .builder()
+        .id(UUID.randomUUID())
         .name(dto.getName())
         .description(dto.getDescription())
         .build();

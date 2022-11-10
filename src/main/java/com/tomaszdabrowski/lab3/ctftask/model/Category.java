@@ -2,16 +2,11 @@ package com.tomaszdabrowski.lab3.ctftask.model;
 
 import com.tomaszdabrowski.lab3.ctftask.model.Category;
 import java.io.Serializable;
-import java.util.List;
 import java.util.UUID;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -34,7 +29,6 @@ import lombok.ToString;
 public class Category implements Serializable {
 
   @Id
-  @GeneratedValue(generator = "UUID", strategy = GenerationType.AUTO)
   @Basic(optional = false)
   @Column(name = "id", unique = true, nullable = false, length = 16)
   private UUID id;
@@ -44,7 +38,4 @@ public class Category implements Serializable {
   private String name;
 
   private String description;
-
-  @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
-  private List<Task> tasks;
 }
