@@ -44,9 +44,8 @@ public class CategoryController {
   ) {
     return categoryService
       .findOne(categoryId)
-      .map(
-        value ->
-          ResponseEntity.ok(GetCategoryDto.entityToDtoMapper().apply(value))
+      .map(value ->
+        ResponseEntity.ok(GetCategoryDto.entityToDtoMapper().apply(value))
       )
       .orElseGet(() -> ResponseEntity.notFound().build());
   }
@@ -59,7 +58,7 @@ public class CategoryController {
     Category category = CreateCategoryDto
       .dtoToEntityMapper()
       .apply(createCategoryDto);
-    category = categoryService.createOne(category);
+    category = categoryService.createOne(category, true);
     return ResponseEntity
       .created(
         builder
@@ -93,7 +92,7 @@ public class CategoryController {
   ) {
     Optional<Category> category = categoryService.findOne(categoryId);
     if (category.isPresent()) {
-      categoryService.deleteOne(categoryId);
+      categoryService.deleteOne(category.get(), true);
       return ResponseEntity.ok().build();
     } else {
       return ResponseEntity.notFound().build();

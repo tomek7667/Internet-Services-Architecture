@@ -38,4 +38,12 @@ public class Category implements Serializable {
   private String name;
 
   private String description;
+
+  public static MinifiedCategory asMinifiedCategory(Category category) {
+    return MinifiedCategory
+      .builder()
+      .id(category.getId())
+      .name(category.getName())
+      .build();
+  }
 }

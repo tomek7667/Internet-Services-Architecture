@@ -88,12 +88,12 @@ public class InitializedData {
         )
         .build();
 
-      categoryService.createOne(category1);
-      categoryService.createOne(category2);
-      categoryService.createOne(category3);
-      categoryService.createOne(category4);
-      categoryService.createOne(category5);
-      categoryService.createOne(category6);
+      categoryService.createOne(category1, false);
+      categoryService.createOne(category2, false);
+      categoryService.createOne(category3, false);
+      categoryService.createOne(category4, false);
+      categoryService.createOne(category5, false);
+      categoryService.createOne(category6, false);
     }
   }
 }

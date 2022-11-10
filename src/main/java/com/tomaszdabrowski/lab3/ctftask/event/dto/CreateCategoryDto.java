@@ -1,4 +1,4 @@
-package com.tomaszdabrowski.lab3.ctftask.dto;
+package com.tomaszdabrowski.lab3.ctftask.event.dto;
 
 import com.tomaszdabrowski.lab3.ctftask.model.Category;
 import java.util.UUID;
@@ -15,22 +15,16 @@ import lombok.ToString;
 @Getter
 @Setter
 @Builder
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString
 @EqualsAndHashCode
 public class CreateCategoryDto {
 
-  private String name;
-  private String description;
+  private UUID category_id;
 
-  public static Function<CreateCategoryDto, Category> dtoToEntityMapper() {
-    return dto ->
-      Category
-        .builder()
-        .id(UUID.randomUUID())
-        .name(dto.getName())
-        .description(dto.getDescription())
-        .build();
+  public static Function<Category, CreateCategoryDto> entityToDtoMapper() {
+    return category ->
+      CreateCategoryDto.builder().category_id(category.getId()).build();
   }
 }
