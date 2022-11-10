@@ -37,8 +37,4 @@ public class CategoryService {
   public void deleteOne(UUID id) {
     categoryRepository.deleteById(id);
   }
-
-  public List<Category> findManyByName(String name) {
-    return categoryRepository.findByName(name);
-  }
 }

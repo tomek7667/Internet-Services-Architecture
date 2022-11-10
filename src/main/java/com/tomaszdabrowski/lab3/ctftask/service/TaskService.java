@@ -41,8 +41,4 @@ public class TaskService {
   public List<Task> findManyByCategoryId(UUID categoryId) {
     return taskRepository.findByCategoryId(categoryId);
   }
-
-  public List<Task> findManyByCategoryName(String categoryName) {
-    return taskRepository.findByCategoryName(categoryName);
-  }
 }

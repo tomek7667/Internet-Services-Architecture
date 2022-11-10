@@ -9,6 +9,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TaskRepository extends JpaRepository<Task, UUID> {
   List<Task> findByCategoryId(UUID categoryId);
-
-  List<Task> findByCategoryName(String categoryName);
 }

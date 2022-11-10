@@ -26,7 +26,7 @@ public class GetTaskDto {
   private String name;
   private String description;
   private int points;
-  private String category;
+  private UUID category;
   private String flagHash;
 
   public static String sha512(String input) {
@@ -52,7 +52,7 @@ public class GetTaskDto {
         .name(task.getName())
         .description(task.getDescription())
         .points(task.getPoints())
-        .category(task.getCategory().getName())
+        .category(task.getCategory().getId())
         .flagHash(GetTaskDto.sha512(task.getFlag()))
         .build();
   }
