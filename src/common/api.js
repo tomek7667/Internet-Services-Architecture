@@ -120,6 +120,44 @@ const deleteTask = async (taskId) => {
 	});
 };
 
+const createCategory = async (category) => {
+	return new Promise(async (resolve, reject) => {
+		const response = await fetch(`${baseUrl}/categories`, {
+			method: "POST",
+			headers,
+			body: JSON.stringify(category),
+		});
+		if (response.ok) {
+			return resolve({
+				success: true,
+			});
+		} else {
+			return resolve({
+				success: false,
+			});
+		}
+	});
+};
+
+const createTask = async (task) => {
+	return new Promise(async (resolve, reject) => {
+		const response = await fetch(`${baseUrl}/tasks`, {
+			method: "POST",
+			headers,
+			body: JSON.stringify(task),
+		});
+		if (response.ok) {
+			return resolve({
+				success: true,
+			});
+		} else {
+			return resolve({
+				success: false,
+			});
+		}
+	});
+};
+
 export {
 	getCategories,
 	getGategory,
@@ -127,4 +165,6 @@ export {
 	getTasks,
 	getTask,
 	deleteTask,
+	createCategory,
+	createTask,
 };
