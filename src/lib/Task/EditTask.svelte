@@ -2,15 +2,15 @@
 	export let currentRoute;
 	export let backRoute;
 	export let currentCategory;
-	import { createTask } from "../../common/api.js";
-
-	let task = {
+	export let taskToEdit = {
 		categoryId: currentCategory.id,
 		description: "",
 		flag: "",
 		name: "",
 		points: 0,
 	};
+
+	import { editTask } from "../../common/api.js";
 
 	let error = {
 		name: "",
@@ -19,27 +19,29 @@
 		flag: "",
 	};
 
-	const createTaskHandler = async () => {
+	let oldTaskName = taskToEdit.name;
+
+	const editTaskHandler = async () => {
 		let isValid = true;
-		if (task.name === "") {
+		if (taskToEdit.name === "") {
 			error.name = "Name is required";
 			isValid = false;
 		} else {
 			error.name = "";
 		}
-		if (task.description === "") {
+		if (taskToEdit.description === "") {
 			error.description = "Description is required";
 			isValid = false;
 		} else {
 			error.description = "";
 		}
-		if (task.points <= 0) {
+		if (taskToEdit.points <= 0) {
 			error.points = "Number of points must be greater than 0";
 			isValid = false;
 		} else {
 			error.points = "";
 		}
-		if (task.flag === "") {
+		if (taskToEdit.flag === "") {
 			error.flag = "Flag is required";
 			isValid = false;
 		} else {
@@ -48,7 +50,7 @@
 		if (!isValid) {
 			return;
 		}
-		const { success } = await createTask(task);
+		const { success } = await editTask(taskToEdit);
 		if (success) {
 			backRoute = currentRoute;
 			currentRoute = "/category";
@@ -60,30 +62,31 @@
 
 <div>
 	<p>Inside of: <b>{currentCategory.name}</b></p>
+	<p>Editing <b>{oldTaskName}</b></p>
 	<p>Name of the task:</p>
 	<span class="error">{error.name}</span>
-	<input type="text" bind:value={task.name} />
+	<input type="text" bind:value={taskToEdit.name} />
 
 	<p>Description of the task:</p>
 	<span class="error">{error.description}</span>
-	<input type="text" bind:value={task.description} />
+	<input type="text" bind:value={taskToEdit.description} />
 
 	<p>Points for the task:</p>
 	<span class="error">{error.points}</span>
-	<input type="number" bind:value={task.points} min="0" />
+	<input type="number" bind:value={taskToEdit.points} min="0" />
 
 	<p>Flag for the task:</p>
 	<span class="error">{error.flag}</span>
-	<input type="text" bind:value={task.flag} />
+	<input type="text" bind:value={taskToEdit.flag} />
 
 	<br />
 	<br />
-	<button on:click={createTaskHandler}>Create</button>
+	<button on:click={editTaskHandler}>Submit</button>
 </div>
 
 <style>
 	.error {
 		color: red;
-		font-weight: bold;
+		font-weight: bold;  
 	}
 </style>

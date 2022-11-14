@@ -158,6 +158,44 @@ const createTask = async (task) => {
 	});
 };
 
+const editTask = async (task) => {
+	return new Promise(async (resolve, reject) => {
+		const response = await fetch(`${baseUrl}/tasks/${task.id}`, {
+			method: "PUT",
+			headers,
+			body: JSON.stringify(task),
+		});
+		if (response.ok) {
+			return resolve({
+				success: true,
+			});
+		} else {
+			return resolve({
+				success: false,
+			});
+		}
+	});
+};
+
+const editCategory = async (category) => {
+	return new Promise(async (resolve, reject) => {
+		const response = await fetch(`${baseUrl}/categories/${category.id}`, {
+			method: "PUT",
+			headers,
+			body: JSON.stringify(category),
+		});
+		if (response.ok) {
+			return resolve({
+				success: true,
+			});
+		} else {
+			return resolve({
+				success: false,
+			});
+		}
+	});
+};
+
 export {
 	getCategories,
 	getGategory,
@@ -167,4 +205,6 @@ export {
 	deleteTask,
 	createCategory,
 	createTask,
+	editTask,
+	editCategory,
 };

@@ -1,8 +1,6 @@
 <script>
 	import { sha512 } from "../../common/sha512.js";
-	export let currentRoute;
 	export let currentTask;
-	export let backRoute;
 	let userFlag = "";
 
 	const checkFlag = async () => {

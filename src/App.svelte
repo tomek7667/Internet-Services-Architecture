@@ -5,13 +5,26 @@
 	import MainCategory from "./lib/Category/MainCategory.svelte";
 	import CreateCategory from "./lib/Category/CreateCategory.svelte";
 	import MainTask from "./lib/Task/MainTask.svelte";
+	import CreateTask from "./lib/Task/CreateTask.svelte";
+	import EditTask from "./lib/Task/EditTask.svelte";
+	import EditCategory from "./lib/Category/EditCategory.svelte";
 
 	let categories = [];
 	let currentRoute = "/";
 	let backRoute = "/";
 	let currentCategory = {};
 	let currentTask = {};
-	let pointsGot = 0;
+	let taskToEdit = {
+		name: "",
+		description: "",
+		categoryId: "",
+		flag: "",
+		points: 0,
+	};
+	let categoryToEdit = {
+		name: "",
+		description: "",
+	};
 
 	onMount(async () => {
 		let localCategories = await getCategories();
@@ -39,15 +52,27 @@
 			bind:currentCategory
 			bind:currentTask
 			bind:backRoute
+			bind:taskToEdit
 		/>
 	{:else if currentRoute === "/task"}
-		<MainTask bind:currentRoute bind:currentTask bind:backRoute />
+		<MainTask bind:currentTask />
 	{:else if currentRoute === "/create-category"}
-		<CreateCategory
+		<CreateCategory bind:currentRoute bind:backRoute bind:categories />
+	{:else if currentRoute === "/edit-category"}
+		<EditCategory
+			bind:currentRoute
+			bind:backRoute
+			bind:categories
+			bind:categoryToEdit
+		/>
+	{:else if currentRoute === "/create-task"}
+		<CreateTask bind:currentRoute bind:backRoute bind:currentCategory />
+	{:else if currentRoute === "/edit-task"}
+		<EditTask
 			bind:currentRoute
 			bind:backRoute
 			bind:currentCategory
-			bind:categories
+			bind:taskToEdit
 		/>
 	{:else}
 		{#each categories as category}
@@ -57,6 +82,7 @@
 				bind:currentRoute
 				bind:currentCategory
 				bind:backRoute
+				bind:categoryToEdit
 			/>
 		{/each}
 		<br />
