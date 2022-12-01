@@ -1,0 +1,16 @@
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-element/src/main/java/com/tomaszdabrowski/lab3/ctftask/controller/TaskController.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-element/src/main/java/com/tomaszdabrowski/lab3/ctftask/dto/GetTasksDto.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-element/src/main/java/com/tomaszdabrowski/lab3/ctftask/model/MinifiedTask.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-element/src/main/java/com/tomaszdabrowski/lab3/ctftask/controller/CategoryController.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-element/src/main/java/com/tomaszdabrowski/lab3/ctftask/service/TaskService.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-element/src/main/java/com/tomaszdabrowski/lab3/ctftask/model/Task.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-element/src/main/java/com/tomaszdabrowski/lab3/ctftask/repository/h2/CategoryRepository.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-element/src/main/java/com/tomaszdabrowski/lab3/ctftask/dto/CreateTaskDto.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-element/src/main/java/com/tomaszdabrowski/lab3/ctftask/repository/h2/TaskRepository.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-element/src/main/java/com/tomaszdabrowski/lab3/ctftask/dto/UpdateTaskDto.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-element/src/main/java/com/tomaszdabrowski/lab3/ctftask/model/Category.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-element/src/main/java/com/tomaszdabrowski/lab3/ctftask/event/dto/CreateCategoryDto.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-element/src/main/java/com/tomaszdabrowski/lab3/configuration/InitializedData.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-element/src/main/java/com/tomaszdabrowski/lab3/Lab3Application.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-element/src/main/java/com/tomaszdabrowski/lab3/ctftask/dto/GetTaskDto.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-element/src/main/java/com/tomaszdabrowski/lab3/ctftask/service/CategoryService.java

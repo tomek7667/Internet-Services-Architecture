@@ -1,0 +1,13 @@
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-category/src/main/java/com/tomaszdabrowski/lab3/Lab3Application.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-category/src/main/java/com/tomaszdabrowski/lab3/ctftask/dto/CreateCategoryDto.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-category/src/main/java/com/tomaszdabrowski/lab3/ctftask/dto/GetCategoryDto.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-category/src/main/java/com/tomaszdabrowski/lab3/configuration/InitializedData.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-category/src/main/java/com/tomaszdabrowski/lab3/ctftask/dto/UpdateCategoryDto.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-category/src/main/java/com/tomaszdabrowski/lab3/ctftask/model/MinifiedCategory.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-category/src/main/java/com/tomaszdabrowski/lab3/ctftask/repository/h2/CategoryRepository.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-category/src/main/java/com/tomaszdabrowski/lab3/ctftask/event/dto/CreateCategoryDto.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-category/src/main/java/com/tomaszdabrowski/lab3/ctftask/model/Category.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-category/src/main/java/com/tomaszdabrowski/lab3/ctftask/controller/CategoryController.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-category/src/main/java/com/tomaszdabrowski/lab3/ctftask/event/repository/CategoryEventRepository.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-category/src/main/java/com/tomaszdabrowski/lab3/ctftask/dto/GetCategoriesDto.java
+/Users/dabrowto/praca/studia/sem5/is/lab5/backend-category/src/main/java/com/tomaszdabrowski/lab3/ctftask/service/CategoryService.java

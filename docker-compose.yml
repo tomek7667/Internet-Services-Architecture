@@ -1,0 +1,17 @@
+version: '3'
+services:
+  m2:
+    build: ./m2
+    restart: always
+    networks:
+      - default
+    ports:
+      - "1111:80"
+      - "8081:8081"
+  m1: # Reverse proxy
+    build: ./m1
+    restart: always
+    networks:
+      - default
+    ports:
+      - "8080:80"

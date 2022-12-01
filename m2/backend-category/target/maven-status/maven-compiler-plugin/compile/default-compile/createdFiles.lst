@@ -1,0 +1,15 @@
+com/tomaszdabrowski/lab3/ctftask/dto/GetCategoryDto.class
+com/tomaszdabrowski/lab3/ctftask/repository/h2/CategoryRepository.class
+com/tomaszdabrowski/lab3/ctftask/dto/CreateCategoryDto.class
+com/tomaszdabrowski/lab3/ctftask/dto/GetCategoriesDto$GetCategoriesDtoBuilder.class
+com/tomaszdabrowski/lab3/ctftask/controller/CategoryController.class
+com/tomaszdabrowski/lab3/ctftask/service/CategoryService.class
+com/tomaszdabrowski/lab3/Lab3Application.class
+com/tomaszdabrowski/lab3/ctftask/dto/UpdateCategoryDto.class
+com/tomaszdabrowski/lab3/ctftask/model/Category$CategoryBuilder.class
+com/tomaszdabrowski/lab3/ctftask/dto/GetCategoryDto$GetCategoryDtoBuilder.class
+com/tomaszdabrowski/lab3/ctftask/dto/CreateCategoryDto$CreateCategoryDtoBuilder.class
+com/tomaszdabrowski/lab3/ctftask/dto/UpdateCategoryDto$UpdateCategoryDtoBuilder.class
+com/tomaszdabrowski/lab3/ctftask/dto/GetCategoriesDto.class
+com/tomaszdabrowski/lab3/configuration/InitializedData.class
+com/tomaszdabrowski/lab3/ctftask/model/Category.class
